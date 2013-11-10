@@ -6,6 +6,7 @@
 package carlos.cuadradoMagico;
 
 import carlos.cuadradoMagico.ejecutor.Ejecutor;
+import java.util.Date;
 
 /**
  *
@@ -14,6 +15,18 @@ import carlos.cuadradoMagico.ejecutor.Ejecutor;
 public class CuadradoMagico {
 
     public static void main(String args[]) {
-        Ejecutor.ejecutarCalculo(20,500000);
+        Date horaInicio;
+        Date horaFin;
+        long tiempoDeCalculo;
+
+        horaInicio = new Date();
+
+        Ejecutor.ejecutarCalculo(10);
+
+        horaFin = new Date();
+
+        tiempoDeCalculo = (horaFin.getTime() - horaInicio.getTime()) / 1000;
+
+        System.out.println("Segundos de calculo: " + tiempoDeCalculo);
     }
 }

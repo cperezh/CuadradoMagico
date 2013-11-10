@@ -16,42 +16,43 @@ import carlos.cuadradoMagico.repartidor.Repartidor;
  */
 public class Ejecutor {
 
-    public static void ejecutarCalculo(int valorCalculo, int numeroDeIntentos){
+    public static void ejecutarCalculo(int valorCalculo) {
 
         Matriz matriz;
         Condicion condiciones[];
-        boolean cumpleCondicion;
+        boolean cumpleTodasLasCondiciones;
+        boolean encontrado;
         int i;
 
-        while (numeroDeIntentos > 0) {
-            
-            matriz = Repartidor.repartirNumeros(valorCalculo/2);
-            
-            System.out.println(numeroDeIntentos+" Matriz-------->"+matriz.toString());
+        encontrado = false;
+
+        while (!encontrado) {
+
+            matriz = Repartidor.repartirNumeros(valorCalculo / 2);
+
+            System.out.println(" Matriz-------->" + matriz.toString());
 
             condiciones = Condicion.values();
 
-            cumpleCondicion = true;
-
             i = 0;
 
-            while (cumpleCondicion && i < condiciones.length) {
+            cumpleTodasLasCondiciones = true;
+
+            while (cumpleTodasLasCondiciones && i < condiciones.length) {
 
                 if (!Condicionador.cumpleCondicion(condiciones[i], matriz, valorCalculo)) {
-                    cumpleCondicion = false;
-                }
-                else{
+                    cumpleTodasLasCondiciones = false;
+                } else {
                     i++;
                 }
             }
-            
-            if (cumpleCondicion){
+
+            if (cumpleTodasLasCondiciones) {
+                encontrado = true;
                 System.out.println("Encontrado!!!!--------> ");
             }
-            
-            numeroDeIntentos = cumpleCondicion ? 0 : numeroDeIntentos-1;
-            
-           
+
+            System.gc();
         }
     }
 }
