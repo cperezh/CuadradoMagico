@@ -6,6 +6,7 @@
 package carlos.cuadradoMagico;
 
 import carlos.cuadradoMagico.ejecutor.Ejecutor;
+import carlos.cuadradoMagico.repartidor.Matriz;
 import java.util.Date;
 
 /**
@@ -18,12 +19,15 @@ public class CuadradoMagico {
         Date horaInicio;
         Date horaFin;
         long tiempoDeCalculo;
+        Matriz matriz;
 
         horaInicio = new Date();
 
-        Ejecutor.ejecutarCalculo(10);
+        matriz = Ejecutor.ejecutarCalculo(10);
 
         horaFin = new Date();
+        
+        System.out.println("Encontrado!!!!--------> "+matriz);
 
         tiempoDeCalculo = (horaFin.getTime() - horaInicio.getTime()) / 1000;
 

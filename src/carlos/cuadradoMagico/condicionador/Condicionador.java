@@ -23,7 +23,7 @@ public class Condicionador {
             sumaParcial += matriz.getCuadrado()[posicion.getX()][posicion.getY()];
         }
  
-        System.out.println("Condicion: "+condicion+" suma: "+sumaParcial+" ");
+      //  System.out.println("Condicion: "+condicion+" suma: "+sumaParcial+" ");
         
         cumpleCondicion = sumaParcial == valorCondicion;
 

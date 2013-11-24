@@ -16,7 +16,7 @@ import carlos.cuadradoMagico.repartidor.Repartidor;
  */
 public class Ejecutor {
 
-    public static void ejecutarCalculo(int valorCalculo) {
+    public static Matriz ejecutarCalculo(int valorCalculo) {
 
         Matriz matriz;
         Condicion condiciones[];
@@ -25,12 +25,11 @@ public class Ejecutor {
         int i;
 
         encontrado = false;
+        matriz = null;
 
         while (!encontrado) {
 
             matriz = Repartidor.repartirNumeros(valorCalculo / 2);
-
-            System.out.println(" Matriz-------->" + matriz.toString());
 
             condiciones = Condicion.values();
 
@@ -49,10 +48,12 @@ public class Ejecutor {
 
             if (cumpleTodasLasCondiciones) {
                 encontrado = true;
-                System.out.println("Encontrado!!!!--------> ");
+
             }
 
             System.gc();
         }
+
+        return matriz;
     }
 }
